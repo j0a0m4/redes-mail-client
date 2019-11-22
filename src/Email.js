@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Email.css'
 
 class Email extends Component {
   state = {
@@ -39,8 +40,8 @@ class Email extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className="Email">
+        <form className="container" onSubmit={this.handleSubmit}>
           <input
             name="from"
             value={this.state.from}
