@@ -8,6 +8,24 @@ class Email extends Component {
     text: ''
   };
 
+  handleEmail = async message => {
+    const API_URL = 'http://localhost:9000/send';
+    const options = {
+      method: 'POST',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      redirect: 'follow',
+      referrer: 'no-referrer',
+      body: JSON.stringify(message)
+    };
+    const res = await fetch(API_URL, options);
+    console.log(res);
+  };
+
   handleChange = evt => {
     this.setState({ [evt.target.name || 'text']: evt.target.value });
   };
@@ -15,6 +33,7 @@ class Email extends Component {
   handleSubmit = evt => {
     evt.preventDefault();
     console.log(this.state);
+    this.handleEmail(this.state);
     this.setState({ from: '', to: '', subject: '', text: '' });
   };
 
