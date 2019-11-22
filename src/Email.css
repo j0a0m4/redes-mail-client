@@ -1,12 +1,12 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    padding: 0px 2rem 0px 2rem;
-
-    margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 2rem 0px 2rem;
+  margin-top: 5rem;
 }
 
-input, textarea {
-    margin-bottom: 0.4rem;
-    height: 30px;
+input,
+textarea {
+  margin-bottom: 0.4rem;
+  height: 30px;
 }

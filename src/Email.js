@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Email.css'
+import './Email.css';
 
 class Email extends Component {
   state = {
@@ -28,7 +28,7 @@ class Email extends Component {
   };
 
   handleChange = evt => {
-    this.setState({ [evt.target.name || 'text']: evt.target.value });
+    this.setState({ [evt.target.name]: evt.target.value });
   };
 
   handleSubmit = evt => {
@@ -42,33 +42,55 @@ class Email extends Component {
     return (
       <div className="Email">
         <form className="container" onSubmit={this.handleSubmit}>
-          <input
-            name="from"
-            value={this.state.from}
-            onChange={this.handleChange}
-            placeholder="De"
-            type="email"
-          />
-          <input
-            name="to"
-            value={this.state.to}
-            onChange={this.handleChange}
-            placeholder="Para"
-            type="text"
-          />
-          <input
-            name="subject"
-            value={this.state.subject}
-            onChange={this.handleChange}
-            placeholder="Assunto"
-            type="text"
-          />
-          <textarea
-            value={this.state.text}
-            onChange={this.handleChange}
-            placeholder="Texto"
-          ></textarea>
-          <button>Enviar email</button>
+          <div className="form-group">
+            <label htmlFor="email">De</label>
+            <input
+              name="from"
+              value={this.state.from}
+              onChange={this.handleChange}
+              placeholder="Ex: example@provider.com"
+              type="email"
+              id="email"
+              className="form-control"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="to">Para</label>
+            <input
+              name="to"
+              value={this.state.to}
+              onChange={this.handleChange}
+              placeholder="Ex: example@provider.com"
+              type="text"
+              id="to"
+              className="form-control"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="subject">Assunto</label>
+            <input
+              name="subject"
+              value={this.state.subject}
+              onChange={this.handleChange}
+              placeholder="Ex: Confirmar reunião"
+              type="text"
+              className="form-control"
+              id="subject"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="texto">Mensagem</label>
+            <textarea
+              value={this.state.text}
+              onChange={this.handleChange}
+              placeholder="Texto"
+              className="form-control"
+              rows="5"
+              id="texto"
+              name="text"
+            ></textarea>
+          </div>
+          <button className="btn btn-success">Enviar email</button>
         </form>
       </div>
     );
