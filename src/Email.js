@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import './Email.css';
+import React, { Component } from 'react'
+import './Email.css'
+import Status from './Status'
 
 class Email extends Component {
   state = {
@@ -7,10 +8,10 @@ class Email extends Component {
     to: '',
     subject: '',
     text: ''
-  };
+  }
 
   handleEmail = async message => {
-    const API_URL = 'http://localhost:9000/send';
+    const API_URL = 'http://localhost:9000/send'
     const options = {
       method: 'POST',
       mode: 'cors',
@@ -22,25 +23,26 @@ class Email extends Component {
       redirect: 'follow',
       referrer: 'no-referrer',
       body: JSON.stringify(message)
-    };
-    const res = await fetch(API_URL, options);
-    console.log(res);
-  };
+    }
+    const res = await fetch(API_URL, options)
+    console.log(res)
+  }
 
   handleChange = evt => {
-    this.setState({ [evt.target.name]: evt.target.value });
-  };
+    this.setState({ [evt.target.name]: evt.target.value })
+  }
 
   handleSubmit = evt => {
-    evt.preventDefault();
-    console.log(this.state);
-    this.handleEmail(this.state);
-    this.setState({ from: '', to: '', subject: '', text: '' });
-  };
+    evt.preventDefault()
+    console.log(this.state)
+    this.handleEmail(this.state)
+    this.setState({ from: '', to: '', subject: '', text: '' })
+  }
 
   render() {
     return (
       <div className="Email">
+        <Status />
         <form className="container" onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label htmlFor="email">De</label>
@@ -93,8 +95,8 @@ class Email extends Component {
           <button className="btn btn-success">Enviar email</button>
         </form>
       </div>
-    );
+    )
   }
 }
 
-export default Email;
+export default Email
