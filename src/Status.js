@@ -5,7 +5,11 @@ class Status extends Component {
     status: ''
   }
 
-  async componentDidMount() {
+  componentDidMount() {
+    this.checkStatus()
+  }
+
+  checkStatus = async () => {
     try {
       const res = await fetch('http://localhost:9000')
       console.log(res)
@@ -24,6 +28,13 @@ class Status extends Component {
         }`}
       >
         <p>Server is {this.state.status || 'Loading...'}</p>
+        <button
+          onClick={this.checkStatus}
+          className="btn btn-dark my-2 my-sm-0"
+          type="submit"
+        >
+          Refresh
+        </button>
       </div>
     )
   }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './Email.css'
-import Status from './Status'
 
 class Email extends Component {
   state = {
@@ -42,7 +41,6 @@ class Email extends Component {
   render() {
     return (
       <div className="Email">
-        <Status />
         <form className="container" onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label htmlFor="email">De</label>
@@ -92,7 +90,7 @@ class Email extends Component {
               name="text"
             ></textarea>
           </div>
-          <button className="btn btn-success">Enviar email</button>
+          <button className="btn btn-outline-primary">Enviar email</button>
         </form>
       </div>
     )
